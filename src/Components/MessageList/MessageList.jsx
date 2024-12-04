@@ -1,5 +1,5 @@
-import React from "react";
-import "./MessageList.css";
+import React from "react"
+import "./MessageList.css"
 
 const MessageList = ({ messages }) => {
   return (
@@ -8,17 +8,19 @@ const MessageList = ({ messages }) => {
         messages.map((msg, index) => (
           <div
             key={index}
-            className={`message ${msg.sender === "Yo" ? "sent" : "received"}`}
+            className={`message ${msg.emisor === "YO" ? "sent" : "received"}`}
           >
-            <strong>{msg.sender}: </strong>
-            {msg.text}
+            <strong>{msg.emisor}: </strong>
+            {msg.texto}
           </div>
         ))
       ) : (
-        <p>No tienes mensajes aun</p>
+        <p>No tienes mensajes aún.</p>
       )}
     </div>
   );
 };
 
-export default MessageList;
+export default MessageList
+
+

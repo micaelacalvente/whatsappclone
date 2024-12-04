@@ -1,25 +1,32 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import MessageList from "../MessageList/MessageList"
 import MessageInput from "../MessageInput/MessageInput"
 import "./ChatWindow.css"
 
 const ChatWindow = ({ contact }) => {
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState([]);
+
+  // Actualizamos los mensajes cuando cambia el contacto
+  useEffect(() => {
+    if (contact && contact.mensajes) {
+      setMessages(contact.mensajes);
+    }
+  }, [contact]);
 
   const handleSend = (text) => {
     setMessages((prevMessages) => [
       ...prevMessages,
-      { sender: "Yo", text },
-    ])
-  }
+      { emisor: "YO", hora: new Date().toLocaleTimeString(), texto: text, status: "no-visto" }
+    ]);
+  };
 
   if (!contact) {
     return (
       <div className="default-screen">
-        <h2>Bienvenido a Whatsapp</h2>
-        <p>Selecciona un contacto y empeza a chatear!</p>
+        <h2>Bienvenido a WhatsApp</h2>
+        <p>Selecciona un contacto y empieza a chatear!</p>
       </div>
-    )
+    );
   }
 
   return (
@@ -28,15 +35,17 @@ const ChatWindow = ({ contact }) => {
         <img
           className="chat-header-avatar"
           src={contact.avatar}
-          alt={contact.name}
+          alt={contact.nombre}
         />
-        <h3>{contact.name}</h3>
+        <h3>{contact.nombre}</h3>
       </div>
       <MessageList messages={messages} />
       <MessageInput onSend={handleSend} />
     </div>
-  )
-}
+  );
+};
 
 export default ChatWindow
+
+
 

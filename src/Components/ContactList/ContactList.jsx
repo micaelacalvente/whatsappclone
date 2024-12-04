@@ -13,10 +13,10 @@ const ContactList = ({ contacts, onContactSelect }) => {
           <img
             className="contact-avatar"
             src={contact.avatar}
-            alt={contact.name}
+            alt={contact.nombre}
           />
           <div className="contact-info">
-            <span className="contact-name">{contact.name}</span>
+            <span className="contact-name">{contact.nombre}</span>
             <span className="contact-status">{contact.status}</span>
           </div>
         </div>
