@@ -1,0 +1,37 @@
+.message-list {
+    flex: 1;
+    padding: 15px;
+    background-color: #121b22;
+    overflow-y: auto;
+    border-bottom: 1px solid #2a2f32;
+    border-top: 1px solid #2a2f32;
+  }
+  
+  .message {
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    max-width: 75%;
+    word-wrap: break-word;
+    line-height: 1.4;
+  }
+  
+  .message.sent {
+    background-color: #075e54;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+  }
+  
+  .message.received {
+    background-color: #202c33;
+    color: white;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+  }
+  
+  .message strong {
+    font-weight: bold;
+  }
+  
