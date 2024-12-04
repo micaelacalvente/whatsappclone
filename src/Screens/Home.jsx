@@ -23,10 +23,13 @@ const Home = () => {
 
   useEffect(() => {
     if (contactId) {
-      const contact = contacts.find((c) => c.id === parseInt(contactId, 10))
-      setSelectedContact(contact || null)
+      const contact = contacts.find((c) => c.id === parseInt(contactId, 10));
+      if (contact) {
+        setSelectedContact(contact);  // Solo actualizar si se encuentra el contacto
+      }
     }
-  }, [contactId, contacts])
+  }, [contactId]); // Solo escuchar cambios en contactId
+  
 
   return (
     <div className="app-container">
